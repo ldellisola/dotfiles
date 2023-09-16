@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Functions
 
 remind_set_up_application ()
@@ -10,7 +10,6 @@ remind_set_up_application ()
 # 0. Creating folders
 
 mkdir -p $HOME/dev
-mkdir -p $HOME/scripts
 mkdir -p $HOME/.config
 
 # 1. Install Homebrew
@@ -31,16 +30,15 @@ fi
 # 2. Install Homebrew packages
 echo "Installing homebrew packages..."
 BREW_PCKGS=(
-    curl
     git
     wget
     zsh
-    btop
+    # btop
     gitui
     tree-sitter
     atuin
-    mas
-    bat
+    # mas
+    # bat
     nvim
 )
 
@@ -77,10 +75,10 @@ BREW_CASKS=(
     dotnet-sdk
 )
 
-for i in "${BREW_CASKS[@]}"
-do
-    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" $i
-done
+# for i in "${BREW_CASKS[@]}"
+# do
+#     HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" $i
+# done
 
 
 
@@ -160,13 +158,13 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.screencapture type -string "png"
 
 
-remind_set_up_application "Bitwarden"
-remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
-remind_set_up_application "Spark"
-remind_set_up_application "Spotify"
-remind_set_up_application "Hidden Bar"
-remind_set_up_application "Fig"
-ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
+# remind_set_up_application "Bitwarden"
+# remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
+# remind_set_up_application "Spark"
+# remind_set_up_application "Spotify"
+# remind_set_up_application "Hidden Bar"
+# remind_set_up_application "Fig"
+# ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
 
 echo "Remember to configure SSH keys"
 
