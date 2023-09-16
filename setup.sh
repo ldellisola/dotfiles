@@ -33,13 +33,14 @@ BREW_PCKGS=(
     git
     wget
     zsh
-    # btop
+    btop
     gitui
     tree-sitter
     atuin
-    # mas
-    # bat
+    mas
+    bat
     nvim
+    tldr
 )
 
 for i in "${BREW_PCKGS[@]}" 
@@ -73,12 +74,14 @@ BREW_CASKS=(
     orion
     iina
     dotnet-sdk
+    clipy
+    webstorm
 )
 
-# for i in "${BREW_CASKS[@]}"
-# do
-HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" iterm2
-# done
+for i in "${BREW_CASKS[@]}"
+do
+  HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" $i
+done
 
 
 
@@ -163,21 +166,21 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.screencapture type -string "png"
 
 
-# remind_set_up_application "Bitwarden"
-# remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
-# remind_set_up_application "Spark"
-# remind_set_up_application "Spotify"
-# remind_set_up_application "Hidden Bar"
-remind_set_up_application "Iterm2" "Set MesloLGS NF as font"
-# remind_set_up_application "Fig"
-# ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
+remind_set_up_application "Bitwarden"
+remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
+remind_set_up_application "Spark"
+remind_set_up_application "Spotify"
+remind_set_up_application "Hidden Bar"
+remind_set_up_application "Iterm" "Set MesloLGS NF as font"
+remind_set_up_application "Fig"
+ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
 
 
 echo "Remember to configure SSH keys"
 
 echo "Setting up git..."
 GITHUB_KEY=$HOME/.ssh/github
-ssh-keygen -t rsa -f $GITHUB_KEY -N ""
+ssh-keygen -t rsa -f $GITHUB_KEY -N "" > /dev/null 
 chmod 600 $GITHUB_KEY
 
 cat $GITHUB_KEY.pub
