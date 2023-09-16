@@ -118,6 +118,11 @@ if [ -f "$HOME/.zshrc" ]; then
 fi
 ln -sf $TERMINAL/.zshrc $HOME/.zshrc
 
+curl -fsSL "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" > /Library/Fonts/MesloLGS\ NF\ Regular.ttf
+curl -fsSL "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" > /Library/Fonts/MesloLGS\ NF\ Bold.ttf
+curl -fsSL "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" > /Library/Fonts/MesloLGS\ NF\ Italic.ttf
+curl -fsSL "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" > /Library/Fonts/MesloLGS\ NF\ Bold\ Italic.ttf
+
 # 5. Set up neovim
 echo "Setting up neovim"
 ln -sf $NVIM $HOME/.config/nvim
@@ -163,8 +168,10 @@ defaults write com.apple.screencapture type -string "png"
 # remind_set_up_application "Spark"
 # remind_set_up_application "Spotify"
 # remind_set_up_application "Hidden Bar"
+remind_set_up_application "Iterm2" "Set MesloLGS NF as font"
 # remind_set_up_application "Fig"
 # ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
+
 
 echo "Remember to configure SSH keys"
 
