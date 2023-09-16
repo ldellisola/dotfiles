@@ -82,7 +82,8 @@ BREW_CASKS=(
 
 for i in "${BREW_CASKS[@]}"
 do
-    brew cask install --appdir="/Applications" $1
+    brew cask install $1
+    # brew cask install --appdir="/Applications" $1
 done
 
 ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
