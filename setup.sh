@@ -60,7 +60,6 @@ ln -sf $SCRIPTS $HOME/scripts
 chmod +x $HOME/scripts/*
 
 # 3. Install applications
-read -p "Press enter to continue after installing homebrew packages"
 echo "Installing Brew applications..."
 
 BREW_CASKS=(
@@ -84,7 +83,6 @@ do
 done
 
 
-
 echo "Installing AppStore applications..."
 
 MAC_APPS=(
@@ -94,13 +92,11 @@ MAC_APPS=(
     1352778147 # Bitwarden
 )
 
-# for i in "${MAC_APPS[@]}"
-# do
-#     mas install $i
-# done
+for i in "${MAC_APPS[@]}"
+do
+  mas install $i
+done
 
-
-read -p "Press enter to continue after installing apps" 
 
 # 4. Set up oh-my-zsh
 echo "Setting up oh-my-zsh..."
@@ -170,7 +166,7 @@ remind_set_up_application "Bitwarden"
 remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
 remind_set_up_application "Spark"
 remind_set_up_application "Spotify"
-remind_set_up_application "Hidden Bar"
+remind_set_up_application "Hidden\ Bar"
 remind_set_up_application "Iterm" "Set MesloLGS NF as font"
 remind_set_up_application "Fig"
 ln -sf $BACKUP/fig.json $HOME/.fig/fig.json

@@ -25,10 +25,7 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 plugins=(
-    autoupdate
     git
-    fast-syntax-highlighting
-    auto-color-ls
 )
 
 source $ZSH/oh-my-zsh.sh
