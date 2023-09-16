@@ -1,4 +1,17 @@
 #!/bin/sh
+# Functions
+
+remind_set_up_application ()
+{
+  echo "Remember to configure $1: $2"
+  open /Applications/$1.app
+  read -p "Press enter to continue after configuring $1"
+}
+# 0. Creating folders
+
+mkdir -p $HOME/dev
+mkdir -p $HOME/scripts
+mkdir -p $HOME/.config
 
 # 1. Install Homebrew
 echo "Installing homebrew..."
@@ -66,11 +79,9 @@ BREW_CASKS=(
 
 for i in "${BREW_CASKS[@]}"
 do
-    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask $i
-    # brew install --cask --appdir="/Applications" $i
+    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" $i
 done
 
-ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
 
 
 echo "Installing AppStore applications..."
@@ -93,25 +104,23 @@ read -p "Press enter to continue after installing apps"
 # 4. Set up oh-my-zsh
 echo "Setting up oh-my-zsh..."
 
-if [ -n "$ZSH_VERSION" ]; then
-    chsh -s /opt/homebrew/bin/zsh
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+chsh -s /opt/homebrew/bin/zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
     
-    if [ -f "$HOME/.p10k.zsh"]; then
-        cp $HOME/.p10k.zsh $HOME/.p10k.zsh.old
-    fi
-    ln -sf $TERMINAL/.p10k.zsh $HOME/.p10k.zsh
-
-    if [ -f "$HOME/.zshrc" ]; then
-        cp $HOME/.zshrc $HOME/.zshrc.old
-    fi
-    ln -sf $TERMINAL/.zshrc $HOME/.zshrc
-
-    source $HOME/.zshrc
+if [ -f "$HOME/.p10k.zsh"]; then
+  cp $HOME/.p10k.zsh $HOME/.p10k.zsh.old
 fi
+ln -sf $TERMINAL/.p10k.zsh $HOME/.p10k.zsh
+
+if [ -f "$HOME/.zshrc" ]; then
+  cp $HOME/.zshrc $HOME/.zshrc.old
+fi
+ln -sf $TERMINAL/.zshrc $HOME/.zshrc
+
+source $HOME/.zshrc
 
 # 5. Set up neovim
 echo "Setting up neovim"
@@ -152,6 +161,17 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Save screenshots as PNGs
 defaults write com.apple.screencapture type -string "png"
 
+
+remind_set_up_application "Bitwarden"
+remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig
+remind_set_up_application "Spark"
+remind_set_up_application "Spotify"
+remind_set_up_application "Hidden Bar"
+remind_set_up_application "Fig"
+ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
+
+echo "Remember to configure SSH keys"
+
 echo "Setting up git..."
 GITHUB_KEY=$HOME/.ssh/github
 ssh-keygen -t rsa -f $GITHUB_KEY -N ""
@@ -169,14 +189,9 @@ Host github
 git config --global user.name "Lucas Dell'Isola"
 git config --global user.email dev@lucasdellisola.com.ar
 
-echo "Please add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
+echo "Please add this public key to Github"
+open https://github.com/account/ssh
 
-
-echo "Remember to configure Raycast: $BACKUP/raycast.rayconfig"
-echo "Remember to configure Birwarden"
-echo "Remember to configure SSH keys"
-echo "Remember to configure hiddenbar"
 
 killall Finder
 
