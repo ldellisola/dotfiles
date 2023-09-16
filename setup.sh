@@ -33,29 +33,10 @@ BREW_PCKGS=(
 
 for i in "${BREW_PCKGS[@]}" 
 do
-    brew install $i
+    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install $i
 done
 
 # 2. Set up git
-echo "Setting up git..."
-GITHUB_KEY=$HOME/.ssh/github
-ssh-keygen -t rsa -f $GITHUB_KEY -N ""
-chmod 600 $GITHUB_KEY
-
-echo "
-Host github
-    AddkeysToAgent yes
-    IdentityFile $HOME/.ssh/github
-    Hostname github.com
-" > ~/.ssh/config
-
-git config --global user.name "Lucas Dell'Isola"
-git config --global user.email dev@lucasdellisola.com.ar
-
-echo "Please add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
-read -p "Press enter to continue"
-
 git clone git@github.com:ldellisola/dotfiles.git $HOME/.dotfiles
 
 NVIM=$HOME/.dotfiles/nvim 
@@ -86,8 +67,8 @@ BREW_CASKS=(
 
 for i in "${BREW_CASKS[@]}"
 do
-    brew cask install $1
-    # brew cask install --appdir="/Applications" $1
+    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask $1
+    # brew install --cask --appdir="/Applications" $1
 done
 
 ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
@@ -107,6 +88,8 @@ MAC_APPS=(
 #     mas install $i
 # done
 
+
+read -p "Press enter to continue after installing apps" 
 
 # 4. Set up oh-my-zsh
 echo "Setting up oh-my-zsh..."
@@ -169,6 +152,26 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Save screenshots as PNGs
 defaults write com.apple.screencapture type -string "png"
+
+echo "Setting up git..."
+GITHUB_KEY=$HOME/.ssh/github
+ssh-keygen -t rsa -f $GITHUB_KEY -N ""
+chmod 600 $GITHUB_KEY
+
+cat $GITHUB_KEY.pub
+
+echo "
+Host github
+    AddkeysToAgent yes
+    IdentityFile $HOME/.ssh/github
+    Hostname github.com
+" > ~/.ssh/config
+
+git config --global user.name "Lucas Dell'Isola"
+git config --global user.email dev@lucasdellisola.com.ar
+
+echo "Please add this public key to Github \n"
+echo "https://github.com/account/ssh \n"
 
 
 echo "Remember to configure Raycast: $BACKUP/raycast.rayconfig"
