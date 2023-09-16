@@ -48,9 +48,8 @@ ln -sf $SCRIPTS $HOME/scripts
 chmod +x $HOME/scripts/*
 
 # 3. Install applications
+read -p "Press enter to continue after installing homebrew packages"
 echo "Installing Brew applications..."
-
-brew tap homebrew/cask
 
 BREW_CASKS=(
     fig
@@ -67,8 +66,8 @@ BREW_CASKS=(
 
 for i in "${BREW_CASKS[@]}"
 do
-    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask $1
-    # brew install --cask --appdir="/Applications" $1
+    HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask $i
+    # brew install --cask --appdir="/Applications" $i
 done
 
 ln -sf $BACKUP/fig.json $HOME/.fig/fig.json
