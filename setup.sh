@@ -77,7 +77,7 @@ BREW_CASKS=(
 
 # for i in "${BREW_CASKS[@]}"
 # do
-#     HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" $i
+HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install --cask --appdir="/Applications" iterm2
 # done
 
 

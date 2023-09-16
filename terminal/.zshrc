@@ -19,7 +19,7 @@ export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 
 # ZSH
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
