@@ -120,8 +120,6 @@ if [ -f "$HOME/.zshrc" ]; then
 fi
 ln -sf $TERMINAL/.zshrc $HOME/.zshrc
 
-source $HOME/.zshrc
-
 # 5. Set up neovim
 echo "Setting up neovim"
 ln -sf $NVIM $HOME/.config/nvim
