@@ -37,7 +37,7 @@ do
 done
 
 # 2. Set up git
-git clone git@github.com:ldellisola/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/ldellisola/dotfiles.git $HOME/.dotfiles
 
 NVIM=$HOME/.dotfiles/nvim 
 TERMINAL=$HOME/.dotfiles/terminal
@@ -50,7 +50,7 @@ chmod +x $HOME/scripts/*
 # 3. Install applications
 echo "Installing Brew applications..."
 
-brew tap caskroom/cask
+brew tap homebrew/cask
 
 BREW_CASKS=(
     fig
