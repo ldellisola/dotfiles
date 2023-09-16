@@ -43,6 +43,7 @@ export LANG=en_US.UTF-8
 export DOTNET_ROOT=/usr/local/share/dotnet/
 export DOTNET_CLI_TELEMETRY_OPOUT=true
 export GPG_TTY=$(tty)
+export HOMEBREW_NO_ANALYTICS=1
 
 # Path
 add_to_path "$HOME/scripts"

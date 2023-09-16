@@ -6,10 +6,14 @@ echo "Installing homebrew..."
 which brew > /dev/null 2>&1
 if [ $? -eq 1 ]; then
     xcode-select --install
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    read -p "Press enter to continue after installing xcode tools"
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 else
     brew update
 fi
+
 
 # 2. Install Homebrew packages
 echo "Installing homebrew packages..."
