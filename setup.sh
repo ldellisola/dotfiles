@@ -102,10 +102,10 @@ MAC_APPS=(
     1352778147 # Bitwarden
 )
 
-for i in "${MAC_APPS[@]}"
-do
-    mas install $i
-done
+# for i in "${MAC_APPS[@]}"
+# do
+#     mas install $i
+# done
 
 
 # 4. Set up oh-my-zsh
