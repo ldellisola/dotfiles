@@ -1,0 +1,14 @@
+{
+  "app.beta": true,
+  "app.hideMenubarIcon": true,
+  "app.launchOnStartup": true,
+  "app.preferredTerminal": "iTerm2",
+  "autocomplete.keybindings.enter": "insertSelected",
+  "autocomplete.keybindings.insertCommonPrefix": "tab",
+  "autocomplete.keybindings.insertCommonPrefixOrNavigateDown": "tab",
+  "autocomplete.keybindings.insertSelected": "tab",
+  "autocomplete.keybindings.tab": "insertSelected",
+  "figterm.csi-u.enabled": true,
+  "integrations.experimental": true,
+  "telemetry.disabled": true
+}
