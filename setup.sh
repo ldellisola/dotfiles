@@ -130,7 +130,7 @@ ln -sf $NVIM $HOME/.config/nvim
 echo "Setting up MacOS configurations"
 
 # Enable touch id for sudo
-sudo $HOME/scripts/touchid-sudo.sh
+# sudo $HOME/scripts/touchid-sudo.sh
 
 # Set key repeate speed
 defaults write NSGlobalDomain KeyRepeat -int 2
