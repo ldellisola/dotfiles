@@ -41,9 +41,13 @@ BREW_PCKGS=(
     bat
     nvim
     tldr
+    fzf
+    fd
+    ripgrep
+    node
 )
 
-for i in "${BREW_PCKGS[@]}" 
+for i in "${BREW_PCKGS[@]}"
 do
     HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew install $i
 done
@@ -51,7 +55,7 @@ done
 # 2. Set up git
 git clone https://github.com/ldellisola/dotfiles.git $HOME/.dotfiles
 
-NVIM=$HOME/.dotfiles/nvim 
+NVIM=$HOME/.dotfiles/nvim
 TERMINAL=$HOME/.dotfiles/terminal
 SCRIPTS=$HOME/.dotfiles/scripts
 BACKUP=$HOME/.dotfiles/backup
@@ -106,7 +110,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-    
+
 if [ -f "$HOME/.p10k.zsh" ]; then
   cp $HOME/.p10k.zsh $HOME/.p10k.zsh.old
 fi
@@ -176,7 +180,7 @@ echo "Remember to configure SSH keys"
 
 echo "Setting up git..."
 GITHUB_KEY=$HOME/.ssh/github
-ssh-keygen -t rsa -f $GITHUB_KEY -N "" > /dev/null 
+ssh-keygen -t rsa -f $GITHUB_KEY -N "" > /dev/null
 chmod 600 $GITHUB_KEY
 
 cat $GITHUB_KEY.pub
