@@ -73,7 +73,9 @@ return {
 		lspconfig["omnisharp"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-			-- cmd = {"dotnet", ""}
+			cmd = {
+				"/Users/ldellisola/.local/share/nvim/mason/bin/omnisharp",
+			},
 			-- Enables support for reading code style, naming convention and analyzer
 			-- settings from .editorconfig.
 			enable_editorconfig_support = true,
