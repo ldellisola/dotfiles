@@ -1,13 +1,13 @@
-local setup, comment = pcall(require, "Comment")
-if not setup then
-	return
-end
-
-comment.setup({
-	toggler = {
-		line = "<C-_>",
-	},
-	opleader = {
-		line = "<C-_>",
-	},
-})
+return {
+  "numToStr/Comment.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {
+    toggler = {
+      line = "<C-_>"
+    },
+    opleader = {
+      line = "<C-_>"
+    }
+  },
+  lazy = false
+}
