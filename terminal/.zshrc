@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Functions
 
 add_to_path() {
@@ -7,7 +9,6 @@ add_to_path() {
 }
 
 # Fig configuration
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh" ]]
 
 # Powerlevel10K
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -49,4 +50,6 @@ add_to_path "$HOME/scripts"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Fig
+
+# Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
