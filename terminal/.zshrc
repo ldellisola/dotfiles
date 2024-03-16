@@ -45,7 +45,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Path
 add_to_path "$HOME/scripts"
-
+add_to_path "$HOME/.docker/bin"
 # Powerlevel10K
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -53,3 +53,7 @@ add_to_path "$HOME/scripts"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# zoxide
+eval "$(zoxide init zsh --cmd cd)"
+# bun completions
+[ -s "/Users/ldellisola/.bun/_bun" ] && source "/Users/ldellisola/.bun/_bun"
