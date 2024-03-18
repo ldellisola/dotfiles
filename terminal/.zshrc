@@ -49,6 +49,8 @@ add_to_path "$HOME/.docker/bin"
 # Powerlevel10K
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+alias npx="bunx"
+
 # Fig
 
 # Fig post block. Keep at the bottom of this file.
