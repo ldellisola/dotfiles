@@ -45,6 +45,12 @@ BREW_PCKGS=(
     fd
     ripgrep
     node
+    sketchybar
+    zoxide
+    font-sf-pro
+    jq
+    koekeishiya/formulae/yabai
+    koekeishiya/formulae/skhd
 )
 
 for i in "${BREW_PCKGS[@]}"
@@ -79,6 +85,7 @@ BREW_CASKS=(
     dotnet-sdk
     clipy
     webstorm
+    font-hack-nerd-font
 )
 
 for i in "${BREW_CASKS[@]}"
@@ -165,6 +172,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Save screenshots as PNGs
 defaults write com.apple.screencapture type -string "png"
 
+
+# 7. Set up applications
+
+yabai --start-service
+skhd --start-service
 
 remind_set_up_application "Bitwarden"
 remind_set_up_application "Raycast" $BACKUP/raycast.rayconfig

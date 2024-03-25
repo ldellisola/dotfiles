@@ -21,3 +21,5 @@ k.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 k.set("n", "<C-d>", "yyp") -- duplicate line
 k.set("n", "<C-z>", "u") -- undo
+
+k.set("n", "<leader>c", ":CopilotChatToggle<CR>") -- toggle copilot chat

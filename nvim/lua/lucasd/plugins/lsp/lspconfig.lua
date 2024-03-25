@@ -138,6 +138,12 @@ return {
 			shell = "powershell.exe",
 		})
 
+		lspconfig["volar"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "vue", "javascript", "typescript" },
+		})
+
 		lspconfig["dockerls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -147,7 +153,7 @@ return {
 		lspconfig["emmet_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "vue" },
 		})
 
 		lspconfig["lua_ls"].setup({
@@ -171,6 +177,21 @@ return {
 		})
 
 		lspconfig["tsserver"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "typescript", "javascript", "vue" },
+			init_options = {
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/opt/homebrew/lib/node_modules/@vue/typescript-plugin/",
+						languages = { "typescript", "javascript", "vue" },
+					},
+				},
+			},
+		})
+
+		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
