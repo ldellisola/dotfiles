@@ -1,3 +1,5 @@
+local os = require("lucasd.utils.os")
+
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
@@ -184,7 +186,7 @@ return {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
-						location = "/opt/homebrew/lib/node_modules/@vue/typescript-plugin/",
+						location = os.getGlobalNodeModulesPath() .. "@vue/typescript-plugin/",
 						languages = { "typescript", "javascript", "vue" },
 					},
 				},
