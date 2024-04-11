@@ -181,13 +181,13 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "typescript", "javascript", "vue" },
+			filetypes = { "typescript", "javascript", "vue", "typescriptreact", "typescript.tsx" },
 			init_options = {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
 						location = os.getGlobalNodeModulesPath() .. "@vue/typescript-plugin/",
-						languages = { "typescript", "javascript", "vue" },
+						languages = { "vue" },
 					},
 				},
 			},
