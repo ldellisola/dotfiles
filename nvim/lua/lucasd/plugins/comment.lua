@@ -1,14 +1,16 @@
+local os = require("lucasd.utils.os")
+
+local commentKey = os.isWindows() and "<C-_>" or "!_comment"
+
 return {
 	"numToStr/Comment.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		toggler = {
-			line = "!_comment",
-			-- line = "<C-/>",
+			line = commentKey,
 		},
 		opleader = {
-			line = "!_comment",
-			-- line = "<C-/>",
+			line = commentKey,
 		},
 	},
 	lazy = false,

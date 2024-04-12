@@ -1,3 +1,5 @@
+local os = require("lucasd.utils.os")
+
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
@@ -179,13 +181,13 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "typescript", "javascript", "vue" },
+			filetypes = { "typescript", "javascript", "vue", "typescriptreact", "typescript.tsx" },
 			init_options = {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
-						location = "/opt/homebrew/lib/node_modules/@vue/typescript-plugin/",
-						languages = { "typescript", "javascript", "vue" },
+						location = os.getGlobalNodeModulesPath() .. "@vue/typescript-plugin/",
+						languages = { "vue" },
 					},
 				},
 			},
@@ -194,6 +196,23 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+
+		-- configure svelte server
+		lspconfig["svelte"].setup({
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+
+				vim.api.nvim_create_autocmd("BufWritePost", {
+					pattern = { "*.js", "*.ts" },
+					callback = function(ctx)
+						if client.name == "svelte" then
+							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+						end
+					end,
+				})
+			end,
 		})
 	end,
 }
