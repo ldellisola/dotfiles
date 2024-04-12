@@ -1,8 +1,11 @@
 return {
-	"github/copilot.vim",
-	config = function()
-		-- local copilot = require("copilot")
-		-- copilot.setup()
-		vim.g.copilot_filetypes = { markdown = true }
-	end,
+	"zbirenbaum/copilot.lua",
+	cmd = "Copilot",
+	build = ":Copilot auth",
+	vent = "InsertEnter",
+	opts = {
+		suggestion = { enabled = false },
+		panel = { enabled = false },
+		filetypes = { markdown = true },
+	},
 }

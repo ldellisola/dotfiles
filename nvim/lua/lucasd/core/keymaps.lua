@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 local k = vim.keymap
 
 -- general keymaps
-k.set("n", "<leader>nh", ":nohl<CR>")
+k.set("n", "<leader>q/", ":nohl<CR>")
 k.set("n", "x", '"_x')
 
 k.set("n", "<leader>+", "<C-a>") -- increment
