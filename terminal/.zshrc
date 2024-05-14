@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Functions
 
 add_to_path() {
@@ -7,8 +5,6 @@ add_to_path() {
         export PATH="$1:$PATH"
     fi
 }
-
-# Fig configuration
 
 # Powerlevel10K
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -52,10 +48,6 @@ add_to_path "$HOME/.docker/bin"
 
 alias npx="bunx"
 
-# Fig
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 # bun completions
