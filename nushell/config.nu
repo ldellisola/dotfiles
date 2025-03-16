@@ -1,11 +1,4 @@
 # Nushell Config File
-#
-# version = "0.96.1"
-
-# For more information on defining custom themes, see
-# https://www.nushell.sh/book/coloring_and_theming.html
-# And here is the theme collection
-# https://github.com/nushell/nu_scripts/tree/main/themes
 let dark_theme = {
     # color for nushell primitives
     separator: white
@@ -890,14 +883,25 @@ $env.config = {
     ]
 }
 
-# source ~/.nushell/oh-my-posh.nu
-source ~/.local/share/atuin/init.nu
-source ~/.nushell/carapace.nu
+source ~/.dotfiles/nushell/atuin.nu
+# source ~/.dotfiles/nushell/carapace.nu
 
-source ~/.nushell/starship.nu
-source ~/.nushell/k8s.nu
-source ~/.nushell/dotnet.nu
-source ~/.nushell/windows.nu
-source ~/.nushell/re-tools.nu
+source ~/.dotfiles/nushell/starship.nu
+source ~/.dotfiles/nushell/k8s.nu
+# source ~/.dotfiles/nushell/dotnet.nu
+if (sys host  | get name) == 'Windows' {
+source ~/.dotfiles/nushell/windows.nu
+}
+source ~/.dotfiles/nushell/re-tools.nu
 
-alias posting = posting -e ~/.config/posting/.env --collection ~/.config/posting/collections/default
+# modules
+use ~/.dotfiles/nushell/modules/system/ *
+use ~/.dotfiles/nushell/modules/docker/ *
+
+# completions
+source ~/.dotfiles/nushell/completions/git.nu
+source ~/.dotfiles/nushell/completions/npm.nu
+source ~/.dotfiles/nushell/completions/curl.nu
+source ~/.dotfiles/nushell/completions/pnpm.nu
+source ~/.dotfiles/nushell/completions/docker.nu
+source ~/.dotfiles/nushell/completions/dotnet.nu
