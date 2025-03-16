@@ -178,7 +178,7 @@ return {
 			},
 		})
 
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "typescript", "javascript", "vue", "typescriptreact", "typescript.tsx" },
