@@ -1,0 +1,123 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](bg:none fg:color_yellow)\
+$directory\
+[](fg:color_yellow bg:color_aqua)\
+$git_branch\
+$git_status\
+[ ](fg:color_aqua bg:none)\
+$nodejs\
+$dotnet\
+[ ](bold fg:blue bg:none)\
+$kubernetes\
+[ ](bold fg:blue)\
+[](fg:color_bg1 bg:none)\
+$time\
+[ ](fg:color_bg1)\
+$line_break$character"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[os]
+disabled = false
+style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[directory]
+style = "fg:color_fg0 bg:color_yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+
+[git_status]
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[dotnet]
+heuristic = true 
+detect_extensions = ['csproj', 'fsproj', 'xproj', 'sln']
+version_format = '${major}'
+style = 'bg:bright-purple'
+format = """
+[](bold fg:purple bg:none)\
+[$symbol($version )(🎯 $tfm )]($style)\
+[](bold fg:purple)\
+"""
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[ $time](fg:color_fg0 bg:color_bg1)]($style)'
+
+[kubernetes]
+disabled = false
+format = '[$symbol $context( \([$namespace]($style underline)\))]($style)'
+contexts = [
+  { context_pattern = "stage-cluster-context", style = "bg:bright-blue", context_alias = "stage" },
+  { context_pattern = "prod-cluster-context", style = "bg:bright-blue fg:black", context_alias = "prod" },
+]
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
