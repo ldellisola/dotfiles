@@ -34,6 +34,11 @@ def create_right_prompt [] {
     ([$last_exit_code, (char space), $time_segment] | str join)
 }
 
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+$env.EDITOR = "nvim"
+
+
+
 # Use nushell functions to define your right and left prompt
 $env.PROMPT_COMMAND = {|| create_left_prompt }
 # FIXME: This default is not implemented in rust code as of 2023-09-08.
