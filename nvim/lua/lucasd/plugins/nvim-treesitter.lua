@@ -6,6 +6,8 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"windwp/nvim-ts-autotag",
+			"nvim-treesitter/playground",
+			{ "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
 		},
 		config = function()
 			-- import nvim-treesitter plugin
@@ -22,8 +24,10 @@ return {
 				autotag = {
 					enable = true,
 				},
+				playground = { enable = true },
 				-- ensure these language parsers are installed
 				ensure_installed = {
+					"nu",
 					"json",
 					"javascript",
 					"typescript",
@@ -33,7 +37,6 @@ return {
 					"css",
 					"markdown",
 					"markdown_inline",
-					"graphql",
 					"bash",
 					"lua",
 					"vim",
