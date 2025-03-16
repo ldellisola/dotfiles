@@ -9,9 +9,7 @@ $git_status\
 [ ](fg:color_aqua bg:none)\
 $nodejs\
 $dotnet\
-[ ](bold fg:blue bg:none)\
 $kubernetes\
-[ ](bold fg:blue)\
 [](fg:color_bg1 bg:none)\
 $time\
 [ ](fg:color_bg1)\
@@ -104,7 +102,7 @@ format = '[[ $time](fg:color_fg0 bg:color_bg1)]($style)'
 
 [kubernetes]
 disabled = false
-format = '[$symbol $context( \([$namespace]($style underline)\))]($style)'
+format = '[ ](bold fg:blue bg:none)[$symbol $context( \([$namespace]($style underline)\))]($style)[ ](bold fg:blue)'
 contexts = [
   { context_pattern = "stage-cluster-context", style = "bg:bright-blue", context_alias = "stage" },
   { context_pattern = "prod-cluster-context", style = "bg:bright-blue fg:black", context_alias = "prod" },
