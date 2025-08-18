@@ -909,5 +909,5 @@ source ~/.dotfiles/nushell/completions/docker.nu
 source ~/.dotfiles/nushell/completions/dotnet.nu
 source ~/.dotfiles/nushell/completions/winget.nu
 
-
-
+# Custom aliases
+alias "rm -rf" = rm-rfp
