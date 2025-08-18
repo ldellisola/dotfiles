@@ -24,17 +24,17 @@ return {
 			ensure_installed = {
 				"ts_ls",
 				"html",
+				"eslint",
 				"cssls",
 				"tailwindcss",
 				"lua_ls",
 				"emmet_ls",
-				"docker_compose_language_service",
 				"angularls",
 				"powershell_es",
 				"dockerls",
-				"volar",
 				"yamlls",
 			},
+
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
 		})

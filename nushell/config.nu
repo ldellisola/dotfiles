@@ -883,20 +883,22 @@ $env.config = {
     ]
 }
 
+source ~/.dotfiles/nushell/zoxide.nu
 source ~/.dotfiles/nushell/atuin.nu
 # source ~/.dotfiles/nushell/carapace.nu
 
 source ~/.dotfiles/nushell/starship.nu
 source ~/.dotfiles/nushell/k8s.nu
 # source ~/.dotfiles/nushell/dotnet.nu
-if (sys host  | get name) == 'Windows' {
+
 source ~/.dotfiles/nushell/windows.nu
-}
 source ~/.dotfiles/nushell/re-tools.nu
 
+  # source ~/.dotfiles/nushell/windows.nu
 # modules
 use ~/.dotfiles/nushell/modules/system/ *
 use ~/.dotfiles/nushell/modules/docker/ *
+use ~/.dotfiles/nushell/modules/mongo/ *
 
 # completions
 source ~/.dotfiles/nushell/completions/git.nu
@@ -905,3 +907,7 @@ source ~/.dotfiles/nushell/completions/curl.nu
 source ~/.dotfiles/nushell/completions/pnpm.nu
 source ~/.dotfiles/nushell/completions/docker.nu
 source ~/.dotfiles/nushell/completions/dotnet.nu
+source ~/.dotfiles/nushell/completions/winget.nu
+
+
+

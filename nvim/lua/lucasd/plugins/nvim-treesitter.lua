@@ -7,7 +7,6 @@ return {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/playground",
-			{ "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
 		},
 		config = function()
 			-- import nvim-treesitter plugin

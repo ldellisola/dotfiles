@@ -1,2 +1,6 @@
 .DS_Store
 nvim/lazy-lock.json
+configstore/**
+helm/**
+github-copilot/**
+nushell/history.txt
