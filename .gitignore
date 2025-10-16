@@ -4,3 +4,4 @@ configstore/**
 helm/**
 github-copilot/**
 nushell/history.txt
+nushell/modules/work/**
