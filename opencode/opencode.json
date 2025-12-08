@@ -5,5 +5,69 @@
       "command": ["nu", "--lsp"],
       "extensions": [".nu"]
     }
+  },
+  "mcp": {
+    "influxdb": {
+      "type": "local",
+      "command": [
+        "node",
+        "C:/Users/lucasd/dev/personal/Influxdb-2-mcp-2/dist/index.js"
+      ],
+      "environment": {
+        "INFLUXDB_URL": "https://influxdb.rystadenergy.com",
+        "INFLUXDB_TOKEN": "",
+
+        "INFLUXDB_ORG": "Rystad Energy"
+      },
+      "enabled": true
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp", "--api-key", ""],
+      "environment": {},
+      "enabled": true
+    },
+    "desktop-commander": {
+      "type": "local",
+      "command": ["npx", "-y", "@wonderwhy-er/desktop-commander"],
+      "environment": {},
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "environment": {},
+      "enabled": true
+    },
+    "grafana": {
+      "type": "local",
+      "command": ["mcp-grafana"],
+      "environment": {
+        "GRAFANA_URL": "https://eunomia.rystadenergy.com",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": ""
+      },
+      "enabled": true
+    },
+    "spectre": {
+      "type": "local",
+      "command": ["spectre-mcp"],
+      "environment": {
+        "SPECTRE_API_KEY": ""
+      },
+      "enabled": true
+    },
+    "rider": {
+      "type": "local",
+      "command": [
+        "C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\jbr\\bin\\java",
+        "-classpath",
+        "C:\\Users\\lucasd\\AppData\\Roaming\\JetBrains\\Rider2025.3\\plugins\\mcpserver\\lib\\mcpserver-frontend.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\util-8.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.ktor.client.cio.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.ktor.client.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.ktor.network.tls.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.ktor.io.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.ktor.utils.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.kotlinx.io.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.kotlinx.serialization.core.jar;C:\\Users\\lucasd\\AppData\\Local\\Programs\\Rider 2\\lib\\module-intellij.libraries.kotlinx.serialization.json.jar",
+        "com.intellij.mcpserver.stdio.McpStdioRunnerKt"
+      ],
+      "environment": {
+        "IJ_MCP_SERVER_PORT": "64343"
+      },
+      "enabled": true
+    }
   }
 }

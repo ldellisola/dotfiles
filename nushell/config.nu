@@ -892,13 +892,14 @@ source ~/.dotfiles/nushell/k8s.nu
 # source ~/.dotfiles/nushell/dotnet.nu
 
 source ~/.dotfiles/nushell/windows.nu
+source ~/.dotfiles/nushell/opencode-update.nu
 source ~/.dotfiles/nushell/re-tools.nu
 
   # source ~/.dotfiles/nushell/windows.nu
 # modules
 use ~/.dotfiles/nushell/modules/system/ *
 use ~/.dotfiles/nushell/modules/docker/ *
-use ~/.dotfiles/nushell/modules/mongo/ *
+use ~/.dotfiles/nushell/modules/work/mongo/ *
 
 # completions
 source ~/.dotfiles/nushell/completions/git.nu
@@ -906,8 +907,10 @@ source ~/.dotfiles/nushell/completions/npm.nu
 source ~/.dotfiles/nushell/completions/curl.nu
 source ~/.dotfiles/nushell/completions/pnpm.nu
 source ~/.dotfiles/nushell/completions/docker.nu
-source ~/.dotfiles/nushell/completions/dotnet.nu
+# source ~/.dotfiles/nushell/completions/dotnet.nu
 source ~/.dotfiles/nushell/completions/winget.nu
+source ~/.dotfiles/nushell/completions/influxdb.nu
+source ~/.dotfiles/nushell/completions/zoxide.nu
 
 # Custom aliases
 alias "rm -rf" = rm-rfp

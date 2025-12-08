@@ -10,9 +10,6 @@ $git_status\
 $nodejs\
 $dotnet\
 $kubernetes\
-[](fg:color_bg1 bg:none)\
-$cmd_duration\
-[ ](fg:color_bg1)\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -109,9 +106,10 @@ format = '[[ $time](fg:color_fg0 bg:color_bg1)]($style)'
 disabled = false
 format = '[ ](bold fg:blue bg:none)[$symbol $context( \([$namespace]($style underline)\))]($style)[ ](bold fg:blue)'
 contexts = [
-  { context_pattern = "stage", style = "bg:bright-blue", context_alias = "stage" },
-  { context_pattern = "prod", style = "bg:bright-blue fg:black", context_alias = "prod" },
-  { context_pattern = "AKS", style = "bg:bright-blue fg:218", context_alias = "AKS" },
+  { context_pattern = "stage-hq", style = "bg:blue", context_alias = "stage-hq" },
+  { context_pattern = "prod-hq", style = "bg:blue fg:black", context_alias = "prod-hq" },
+{ context_pattern = "prod-norway-east", style = "bg:blue fg:218", context_alias = "prod-norway-east" },
+{ context_pattern = "stage-norway-east", style = "bg:blue fg:200", context_alias = "stage-norway-east" },
 ]
 
 [line_break]

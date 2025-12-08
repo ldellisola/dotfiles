@@ -53,7 +53,7 @@ export extern "re nushell" [
 ] 
 
 	
-def RystadEnergy.Tools.Commands.CubeBrowser.ChangeServerCommand_server [] { [ "jonas" , "sofie03" , "sofie04" , "sofie14" , "sofie15" , "sofie21" , "sofie22" , "https://reserver01.rystadenergy.com" , "https://reserver02.rystadenergy.com" , "https://reserver03.rystadenergy.com" ] }
+def RystadEnergy.Tools.Commands.CubeBrowser.ChangeServerCommand_server [] { [ "jonas" , "sofie03" , "sofie04" , "sofie05" , "sofie06" , "sofie14" , "sofie15" , "sofie21" , "sofie22" , "https://reserver01.rystadenergy.com" , "https://reserver02.rystadenergy.com" , "https://reserver03.rystadenergy.com" ] }
 # Change server for Cube Browser
 export extern "re cb server" [
 server: string@RystadEnergy.Tools.Commands.CubeBrowser.ChangeServerCommand_server # New server
@@ -61,7 +61,7 @@ server: string@RystadEnergy.Tools.Commands.CubeBrowser.ChangeServerCommand_serve
 --file(-f): string # optional path to config file
 	--launch(-l)
 ] 
-def RystadEnergy.Tools.Commands.CubeBrowser.OpenCubeBrowserCommand_server [] { [ "jonas" , "sofie03" , "sofie04" , "sofie14" , "sofie15" , "sofie21" , "sofie22" , "https://reserver01.rystadenergy.com" , "https://reserver02.rystadenergy.com" , "https://reserver03.rystadenergy.com" ] }
+def RystadEnergy.Tools.Commands.CubeBrowser.OpenCubeBrowserCommand_server [] { [ "jonas" , "sofie03" , "sofie04" , "sofie05" , "sofie06" , "sofie14" , "sofie15" , "sofie21" , "sofie22" , "https://reserver01.rystadenergy.com" , "https://reserver02.rystadenergy.com" , "https://reserver03.rystadenergy.com" ] }
 	
 
 # Open Cube Browser
@@ -176,4 +176,12 @@ service: string@"nu-complete re 96df015f47c0a33f50ee1b8bef339d909a5e234e"  # Ser
 --help(-h) # Show help
 ---@namespace: string
 	--env(-e): string@RystadEnergy.Tools.Cli.Commands.Kubernetes.RestartServiceCommand_env # K8s environment
+] 
+
+
+# Show a user's profile history
+export extern "re user history" [
+id: string # RE ID, username or Email
+--help(-h) # Show help
+--include-products
 ] 
